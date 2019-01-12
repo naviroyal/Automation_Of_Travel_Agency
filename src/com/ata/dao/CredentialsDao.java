@@ -91,7 +91,9 @@ public class CredentialsDao {
 
 	public CredentialsBean findByID(String userId) {
 		CredentialsBean cb = new CredentialsBean();
+		
 		System.out.println(userId);
+		System.out.println("bsd");
 		try {
 			PreparedStatement ps = con.prepareStatement("select * from user_credentials where userid = ?");
 			ps.setString(1, userId);

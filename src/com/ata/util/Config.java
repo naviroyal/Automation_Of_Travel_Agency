@@ -1,7 +1,7 @@
 package com.ata.util;
 
 import java.sql.Connection;
-//import com.mysql.jdbc.Driver;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -11,9 +11,9 @@ public class Config {
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost/ata", "navi", "Navi1@");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ata", "root", "password");
 			System.out.println("connected");
-		} catch (Exception e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -9,12 +9,16 @@ public class UserUtil implements User {
 	@Override
 	public String login(CredentialsBean credentialsBean) {
 //		ProfileBean pb = (new UserDao()).findByID(userId)
-		if(auth.authenticate(credentialsBean) && auth.changeLoginStatus(credentialsBean, 1)) {
-			System.out.println("i M in login");
-			return "A";
+		if(auth.authenticate(credentialsBean)) {
+			CredentialsDao cd = new CredentialsDao();
+			System.out.println("A");
+			CredentialsBean cb = cd.findByID(credentialsBean.getUserId());
+			System.out.println("B");
+			String type = cb.getUserType();
+			return type;
 		}
 			// TODO Auto-generated method stub
-		return "F";
+		return "C";
 	}
 
 	@Override
